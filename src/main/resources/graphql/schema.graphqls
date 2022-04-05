@@ -1,10 +1,19 @@
 type Query {
-  books: [Book!]
-  authors: [Author!]
+  getBooks: [Book!]
+  getAuthors: [Author!]
+}
+
+type Mutation {
+  saveBook(newBook: NewBook!): Book!
 }
 
 type Book {
   id: ID!
+  name: String!
+  pageCount: Int!
+  authorId: ID!
+}
+input NewBook {
   name: String!
   pageCount: Int!
   authorId: ID!
