@@ -5,22 +5,30 @@ type Query {
 
 type Mutation {
   saveBook(newBook: NewBook!): Book!
+
+  saveAuthor(newAuthor: NewAuthor!): Author!
+  updateAuthor(id: Int!, newData: NewAuthor!): Author!
+  deleteAuthorById(id: Int!): Author!
 }
 
 type Book {
   id: ID!
   name: String!
   pageCount: Int!
-  authorId: ID!
+  authors: [Author!]
 }
 input NewBook {
   name: String!
   pageCount: Int!
-  authorId: ID!
+  authorsId: [ID!]
 }
 
 type Author {
   id: ID!
+  firstName: String!
+  lastName: String!
+}
+input NewAuthor {
   firstName: String!
   lastName: String!
 }

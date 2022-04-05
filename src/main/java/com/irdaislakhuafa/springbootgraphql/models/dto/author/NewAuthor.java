@@ -1,6 +1,4 @@
-package com.irdaislakhuafa.springbootgraphql.models.dto.book;
-
-import java.util.List;
+package com.irdaislakhuafa.springbootgraphql.models.dto.author;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,8 +11,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class NewBook {
-    private String name;
-    private Long pageCount;
-    private List<Long> authorsId;
+public class NewAuthor {
+    private String firstName;
+    private String lastName;
 }
