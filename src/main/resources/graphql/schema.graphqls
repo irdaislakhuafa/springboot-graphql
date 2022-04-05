@@ -6,7 +6,7 @@ type Query {
 type Book {
   id: ID!
   name: String!
-  pageCount: String
+  pageCount: Int!
   authorId: ID!
 }
 
