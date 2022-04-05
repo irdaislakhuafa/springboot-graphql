@@ -40,4 +40,16 @@ public class AuthorController {
         return updatedData;
     }
 
+    @MutationMapping
+    public Optional<Author> deleteById(@Argument Long id) {
+        var deletedData = authorService.findById(id);
+        authorService.deleteById(id);
+        return deletedData;
+    }
+
+    @QueryMapping
+    public Optional<Author> getAuthorById(@Argument Long id) {
+        return authorService.findById(id);
+    }
+
 }

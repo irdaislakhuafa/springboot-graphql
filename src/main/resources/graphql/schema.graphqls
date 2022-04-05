@@ -1,10 +1,15 @@
 type Query {
   getBooks: [Book!]
+  getBookById(id: Int!): Book
+
   getAuthors: [Author!]
+  getAuthorById(id: Int!): Author
 }
 
 type Mutation {
   saveBook(newBook: NewBook!): Book!
+  updateBook(id: Int!, newData: NewBook!): Book!
+  deleteBookById(id: Int!): Book!
 
   saveAuthor(newAuthor: NewAuthor!): Author!
   updateAuthor(id: Int!, newData: NewAuthor!): Author!
