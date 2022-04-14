@@ -60,6 +60,7 @@ jobs:
   publish:
     name: Publish App to Server
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Clone repository to local
         uses: action/checkout@v1
