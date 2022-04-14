@@ -8,23 +8,24 @@ on:
 
 jobs:
   # testing jobs
-  test:
-    - name: Testing application
-      runs-on: ubuntu-latest
-      steps:
-        # clone to github env
-        - uses: actions/checkout@v1
+  tests:
+    name: Testing application
+    runs-on: ubuntu-latest
+    steps:
+      # clone to github env
+      - uses: actions/checkout@v1
 
-        # Setup JDK
-        - name: Setup JDK Enviroment
-          uses: actions/setup-java@v1
-          with:
-            java-version: 11
+      # Setup JDK
+      - name: Setup JDK Enviroment
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
 
-        - name: Cached maven packages
-          uses: actions/cache@v1
-          with:
-            path: ~/.m2/
+      - name: Cached maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2/
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
 
-        - name: Running mvn tests
-          runs: mvn test
+      - name: Running mvn tests
+        run: mvn test
