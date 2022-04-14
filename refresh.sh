@@ -31,4 +31,4 @@ echo "Success build image \"$tagName\""
 echo ""
 
 echo "Running container \"$containerName\""
-doas docker run --rm -d --env-file dep.env --name $containerName -p 8080:8080 $tagName
+doas docker run --rm --env-file dep.env --network bridge --name $containerName -p 8080:8080 $tagName

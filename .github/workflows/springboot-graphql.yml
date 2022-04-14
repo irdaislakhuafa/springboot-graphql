@@ -31,3 +31,28 @@ jobs:
 
       - name: Running mvn tests
         run: mvn test
+
+  build:
+    name: Building Docker Imager for Spring Boot GraphQL
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v1
+
+      - name: Packaging with Maven
+        run: |
+          mvn package
+          docker build -t irdaislakhuafa/springboot-graphql:1.1 .
+
+      - name: Login to My Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Build and Push my Docker Image to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ secrets.APP_TAG }}:1.1
