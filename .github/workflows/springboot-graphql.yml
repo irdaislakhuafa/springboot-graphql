@@ -86,6 +86,4 @@ jobs:
             ls -la
             cd Apps/irdaislakhuafa/springboot-graphql-v1.1
             docker-compose down
-            docker rm springboot-graphql-v1.1
-            docker rmi irdaislakhuafa/springboot-graphql:1.1
             docker-compose up -d
