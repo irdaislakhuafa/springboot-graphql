@@ -74,7 +74,16 @@ jobs:
           source: "./env/*"
           target: "~/Apps/${{ secrets.APP_TAG }}:1.1"
 
-      - name: Starting container
-        run: |
-          cd ~/Apps/${{ secrets.APP_TAG }}:1.1
-          docker-compose up
+      - name: Starting container on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SECRET_KEY }}
+          port: 22
+          script: |
+            cd ~/Apps/${{ secrets.APP_TAG }}:1.1
+            docker-compose down
+            docker rm springboot-graphql-v1.1
+            docker rmi ${{ secrets.APP_TAG }}:1.1
+            docker compose up -d
