@@ -43,7 +43,6 @@ jobs:
       - name: Packaging with Maven
         run: |
           mvn package
-          cd env
           docker build -t irdaislakhuafa/springboot-graphql:1.1 .
 
       - name: Login to My Docker Hub
