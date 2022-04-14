@@ -10,6 +10,8 @@ services:
       - dbms_env
     env_file:
       - dep-docker-compose.env
+    expose:
+      - 8080
   
   dbms_env: 
     image: postgres:latest
