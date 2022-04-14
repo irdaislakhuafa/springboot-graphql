@@ -83,7 +83,8 @@ jobs:
           key: ${{ secrets.SERVER_SECRET_KEY }}
           port: 22
           script: |
-            cd "/home/ec2-user/Apps/irdaislakhuafa/springboot-graphql:1.1"
+            # cd "/home/ec2-user/Apps/irdaislakhuafa/springboot-graphql:1.1"
+            echo $(pwd)
             docker-compose down
             docker rm springboot-graphql-v1.1
             docker rmi irdaislakhuafa/springboot-graphql:1.1
