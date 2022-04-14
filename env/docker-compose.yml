@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  app: 
+    image: irdaislakhuafa/springboot-graphql:1.1
+    build:
+      context: .
+    container_name: springboot-graphql-v1.1
+    depends_on:
+      - dbms_env
+    env_file:
+      - ../dep-docker-compose.env
+  
+  dbms_env: 
+    image: postgres:latest
+    container_name: postgresql
+    ports:
+      - 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test
