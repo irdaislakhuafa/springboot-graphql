@@ -76,12 +76,13 @@ jobs:
           target: "~/Apps/irdaislakhuafa/springboot-graphql-v1.1/*"
 
       - name: Starting container on server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SERVER_SECRET_KEY }}
-          port: 22
-          script: |
-            cd Apps/irdaislakhuafa/springboot-graphql-v1.1
-            ./scripts.sh
+        run: ssh -i ${{ secrets.SERVER_SECRET_KEY }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd Apps/irdaislakhuafa/springboot-graphql-v1.1 && docker-compose down && docker-compose up -d"
+        # uses: appleboy/ssh-action@master
+        # with:
+        #   host: ${{ secrets.SERVER_HOST }}
+        #   username: ${{ secrets.SERVER_USERNAME }}
+        #   key: ${{ secrets.SERVER_SECRET_KEY }}
+        #   port: 22
+        #   script: |
+        #     cd Apps/irdaislakhuafa/springboot-graphql-v1.1
+        #     ./scripts.sh
