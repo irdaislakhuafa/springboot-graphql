@@ -83,8 +83,9 @@ jobs:
           key: ${{ secrets.SERVER_SECRET_KEY }}
           port: 22
           script: |
-            cd ~/Apps/${{ secrets.APP_TAG }}:1.1
+            appDir="irdaislakhuafa/springboot-graphql:1.1"
+            cd ~/Apps/$appDir
             docker-compose down
             docker rm springboot-graphql-v1.1
-            docker rmi ${{ secrets.APP_TAG }}:1.1
+            docker rmi $appDir
             docker compose up -d
