@@ -83,8 +83,16 @@ jobs:
           key: ${{ secrets.SERVER_SECRET_KEY }}
           port: 22
           command: |
-            ls -la
+            # ls -la
+            # ls -la
             cd Apps/irdaislakhuafa/springboot-graphql-v1.1
-            ls -la
             docker-compose stop
             docker-compose up -d
+            echo "Done success"
+
+            # docker network create gql_network
+            # docker run \
+            #   --rm -d \
+            #   --name psql_gql_v1.1 \
+            #   --network gql_network 
+            #   -p 5432:5432 \
