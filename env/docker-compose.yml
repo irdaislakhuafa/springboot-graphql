@@ -4,7 +4,7 @@ services:
   app: 
     image: irdaislakhuafa/springboot-graphql:1.1
     build:
-      context: ../
+      context: .
     container_name: springboot-graphql-v1.1
     depends_on:
       - dbms_env
