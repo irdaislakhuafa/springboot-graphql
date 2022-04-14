@@ -1,0 +1,30 @@
+name: Spring Boot GraphQL Pipeline
+
+on:
+  push:
+    branches: [ci/cd]
+  pull_requests:
+    branches: [ci/cd]
+
+jobs:
+  # testing jobs
+  test:
+    - name: Testing application
+      runs-on: ubuntu-latest
+      steps:
+        # clone to github env
+        - uses: actions/checkout@v1
+
+        # Setup JDK
+        - name: Setup JDK Enviroment
+          uses: actions/setup-java@v1
+          with:
+            java-version: 11
+
+        - name: Cached maven packages
+          uses: actions/cache@v1
+          with:
+            path: ~/.m2/
+
+        - name: Running mvn tests
+          runs: mvn test
