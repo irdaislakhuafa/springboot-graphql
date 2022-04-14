@@ -73,7 +73,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SERVER_SECRET_KEY }}
           source: "./env/*"
-          target: "~/Apps/irdaislakhuafa/springboot-graphql:1.1/*"
+          target: "~/Apps/irdaislakhuafa/springboot-graphql-v1.1/*"
 
       - name: Starting container on server
         uses: fifsky/ssh-action@master
@@ -84,7 +84,7 @@ jobs:
           port: 22
           command: |
             ls -la
-            cd Apps/irdaislakhuafa/springboot-graphql:1.1
+            cd Apps/irdaislakhuafa/springboot-graphql-v1.1
             docker-compose down
             docker rm springboot-graphql-v1.1
             docker rmi irdaislakhuafa/springboot-graphql:1.1
