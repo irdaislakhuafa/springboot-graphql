@@ -73,7 +73,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SERVER_SECRET_KEY }}
           source: "./env/*"
-          target: "~/Apps/${{ secrets.APP_TAG }}:1.1"
+          target: "~/Apps/irdaislakhuafa/springboot-graphql:1.1/*"
 
       - name: Starting container on server
         uses: appleboy/ssh-action@master
