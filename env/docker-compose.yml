@@ -9,7 +9,7 @@ services:
     depends_on:
       - dbms_env
     env_file:
-      - ../dep-docker-compose.env
+      - dep-docker-compose.env
   
   dbms_env: 
     image: postgres:latest
