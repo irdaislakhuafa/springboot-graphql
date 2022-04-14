@@ -30,9 +30,5 @@ doas docker build --tag "$tagName" .
 echo "Success build image \"$tagName\""
 echo ""
 
-doas docker run \
---rm \
--d \
---name "$containerName" \
--p 8080:8080 \
-"$tagName"
+echo "Running container \"$containerName\""
+doas docker run --rm -d --env-file dep.env --name $containerName -p 8080:8080 $tagName
