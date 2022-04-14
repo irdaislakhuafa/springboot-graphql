@@ -2,9 +2,11 @@ name: Spring Boot GraphQL Pipeline
 
 on:
   push:
-    branches: [ci/cd]
+    branches:
+      - ci/cd
   pull_request:
-    branches: [ci/cd]
+    branches:
+      - ci/cd
 
 jobs:
   # testing jobs
