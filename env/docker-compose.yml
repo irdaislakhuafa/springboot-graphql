@@ -4,18 +4,20 @@ services:
   app: 
     image: irdaislakhuafa/springboot-graphql:1.1
     container_name: springboot-graphql-v1.1
+    restart: on-failure
+    ports:
+      - "8080:8080"
     depends_on:
       - dbms_env
     env_file:
       - dep-docker-compose.env
-    ports:
-      - 8080:8080
   
   dbms_env: 
     image: postgres:latest
     container_name: postgresql
+    restart: on-failure
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
