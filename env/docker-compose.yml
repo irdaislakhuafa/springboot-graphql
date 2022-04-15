@@ -6,7 +6,7 @@ services:
     container_name: springboot-graphql-v1.1
     restart: on-failure
     ports:
-      - "8080:8080"
+      - "80:8080"
     depends_on:
       - dbms_env
     env_file:
