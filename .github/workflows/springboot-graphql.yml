@@ -82,8 +82,8 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SERVER_SECRET_KEY }}
-          source: "./env/*"
-          target: "~/Apps/irdaislakhuafa/springboot-graphql-v1.1/*"
+          source: "env/*"
+          target: ~/Apps/irdaislakhuafa/springboot-graphql-v1.1/*
 
       - name: Starting container on server
         # run: ssh -i ${{ secrets.SERVER_SECRET_KEY }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd Apps/irdaislakhuafa/springboot-graphql-v1.1 && docker-compose down && docker-compose up -d"
