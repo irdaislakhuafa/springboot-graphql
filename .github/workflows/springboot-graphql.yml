@@ -85,5 +85,6 @@ jobs:
           port: 22
           script: |
             cd Apps/irdaislakhuafa/springboot-graphql-v1.1
-            docker-compose down 
+            statusContainer=$(docker-compose top)
+            if [ "$statusContainer" != "" ]; then docker-compose down; fi
             docker-compose up -d
